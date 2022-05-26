@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Some Cool Messages!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" id="form2"> 
+  <label for="number">How many messages do you want to see?</label><br>
+  <input type="text" name="number" id="number"><br>
+</form>
+
+<input type="submit" form="form2" value="Submit">
+
+{% if output %}
+     <br> 
+     Sure!
+     <br><br>
+     {{output|safe}} 
+{% endif %}
+
+{% if error %}
+     <br> 
+     We don't have the enough messages you asked for. Come back later!
+{% endif %}
+
+{% endblock %}
+  
